@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vuelidate from 'vuelidate'
+import './assets/dist/dist/css/adminlte.css';
+import './assets/dist/dist/css/adminlte.min.css';
+
 Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
