@@ -9,6 +9,7 @@ import './assets/dist/dist/js/adminlte.min.js';
 import './assets/dist/plugins/jquery/jquery.min.js';
 import './assets/dist/plugins/bootstrap/js/bootstrap.bundle.min.js';
 
+
 Vue.use(Vuelidate)
 
 Vue.config.productionTip = false

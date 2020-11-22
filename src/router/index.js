@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Metodos from '../views/Metodos.vue'
+import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import {auth} from '../firebase'
 
@@ -9,9 +9,9 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Metodos',
-    component: Metodos,
-    meta: { requiresAuth: false }
+    name: 'Home',
+    component: Home,
+    meta: { requiresAuth: true }
   },
   {
     path: '/login',
@@ -32,6 +32,11 @@ Vue.use(VueRouter)
   path: '/add',
   name: 'Add',
   component: () => import('../views/Add.vue')
+  },
+  {
+    path: '/interpolacionlineal',
+    name: 'interpolacionlineal',
+    component: () => import(/* webpackChunkName: "about" */ '../components/UnidadOne/InterpolacionLineal.vue')
   },
 ]
 

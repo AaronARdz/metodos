@@ -1,7 +1,13 @@
 <template>
-    <div class="container">
-        <h1>Ruta protegida</h1>
-        <p>{{user.email}}</p>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="col">
+                <h1>Ruta protegida</h1>
+                    <h3 class="d-inline">Usuario:</h3><p class="ml-2 d-inline">{{user.email}}</p>
+                </div>
+            </div>
+        <hr class="my-4">
         <router-link
         to="/add"
         >
@@ -12,14 +18,10 @@
             class="form-control mt-4 mb-4"
             v-model="text" v-on:keyup="finder(text)">
         </form>
-
-        
-
         <div class="text-center mx-auto mt-5" v-if="loading">
             <p>Cargando...</p>
             <pacman-loader :loading="loading" :color="green"></pacman-loader>
         </div>
-
 
         <div v-if="!loading" class="mt-4">
             <ul class="list-group">
@@ -31,6 +33,7 @@
             <button class="btn mr-2 btn-danger float-right" @click="deleteJob(item.id)">Eliminar</button>
             </li>
             </ul>
+        </div>
         </div>
     </div>
 </template>
