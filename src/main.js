@@ -5,6 +5,9 @@ import store from './store'
 import Vuelidate from 'vuelidate'
 import './assets/dist/dist/css/adminlte.css';
 import './assets/dist/dist/css/adminlte.min.css';
+import './assets/dist/dist/js/adminlte.min.js';
+import './assets/dist/plugins/jquery/jquery.min.js';
+import './assets/dist/plugins/bootstrap/js/bootstrap.bundle.min.js';
 
 Vue.use(Vuelidate)
 

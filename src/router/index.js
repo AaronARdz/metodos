@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Metodos from '../views/Metodos.vue'
 import Login from '../views/Login.vue'
 import {auth} from '../firebase'
 
@@ -9,9 +9,9 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
-    meta: { requiresAuth: true }
+    name: 'Metodos',
+    component: Metodos,
+    meta: { requiresAuth: false }
   },
   {
     path: '/login',
