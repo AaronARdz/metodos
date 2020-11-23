@@ -43,6 +43,7 @@
             <button type="submit" 
             class="btn btn-success"
             :disabled="$v.$invalid">Acceder</button>
+             <router-link to="/register" class="btn btn-primary ml-3">Registrarse</router-link>
         </form>
         <p v-if="error == 'auth/user-not-found'">Usuario Incorrecto</p>
         <p v-if="error == 'auth/wrong-password'">Contraseña Incorrecta</p>

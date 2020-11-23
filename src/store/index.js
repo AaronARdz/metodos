@@ -12,6 +12,55 @@ export default new Vuex.Store({
     error: null,
     jobs: [],
     job: {name: '', id: ''},
+    unidades: {
+      interpolacion: {
+        interpolacion: true,
+        nAdelante: true,
+        nAtras : true,
+        nDivididas : true,
+        lagrange: true,
+      },
+      noLineales: {
+        grafico: false,
+        bisectriz: false,
+        puntoFijo: false,
+        nRaphson: false,
+        falsaposicion: false,
+      },
+      lineales: {
+        montante: false,
+        gaussJordan: false,
+        eliminacion: false,
+        gaussSeidel: false,
+        jacobi: false,
+      },
+      minCuadrados: {
+        lineaRecta: false,
+        cuadratica: false,
+        cubica: false,
+        linealFuncion: false,
+        cuadraticaFuncion: false
+      },
+      integracion: {
+        trapezoidal: false,
+        cotesCerradas: false,
+        cotesAbiertas: false,
+        tercioSimpson: false,
+        octavoSimpson: false,
+      },
+      diferenciales: {
+        euler: false,
+        eulerAdelante: false,
+        eulerAtras: false,
+        eulerModificado: false,
+        rKSegundo: false,
+        rKTercer: false,
+        rKCuarto: false,
+        rKTercioSimpson: false,
+        rKOctavoSimpson: false,
+        rKOrdenSuperior: false,
+      }
+    },
     loading: false,
     text: ''
   },
@@ -40,20 +89,19 @@ export default new Vuex.Store({
     },
     getJobs({commit, state},){
       commit('loadFirebase', true);
-      const jobs = []
-      db.collection(state.user.email).get()
-      .then(res => {
-        res.forEach(doc => {
-          let job = doc.data()
-          job.id = doc.id
-          jobs.push(job)
-        })
-        setTimeout(() => {
+      var docRef = db.collection(state.user.email).doc("unidades");
+      docRef.get().then(function(doc) {
+          if (doc.exists) {
+              state.unidades = doc.data()
+              commit('loadFirebase', false);
+          } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+          }
+      }).catch(function(error) {
+          console.log("Error getting document:", error);
           commit('loadFirebase', false);
-        }, 2000)
-        
-        commit('setJobs', jobs)
-      })
+      });
     },
     getJob({commit, state}, jobId){
       db.collection(state.user.email).doc(jobId).get()
@@ -93,7 +141,7 @@ export default new Vuex.Store({
         this.dispatch('getJobs')
       })
     },
-    createUser({commit}, user) {
+    createUser({commit, state}, user) {
       auth.createUserWithEmailAndPassword(user.email, user.password)
       .then(res => {
         console.log(res)
@@ -102,8 +150,8 @@ export default new Vuex.Store({
           uid: res.user.uid,
           password: res.user.password
         }
-        db.collection(res.user.email).add({
-          name: 'example job'
+        db.collection(res.user.email).doc('unidades').set({
+          unidades: state.unidades
         }).then(doc => {
           commit('setUser', userCreated)
           router.push('/')

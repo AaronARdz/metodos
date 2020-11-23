@@ -3,14 +3,15 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD82GTOnh9IgHTFS_TLkXu3vSk4mL2BuUw",
-    authDomain: "auth-2020-d2253.firebaseapp.com",
-    databaseURL: "https://auth-2020-d2253.firebaseio.com",
-    projectId: "auth-2020-d2253",
-    storageBucket: "auth-2020-d2253.appspot.com",
-    messagingSenderId: "1066363348011",
-    appId: "1:1066363348011:web:ce397f805d3b209e10f66e"
-  };
+  apiKey: "AIzaSyAG3yTSx_VDOHyIT2dFAf70K9Nqf30uCNk",
+  authDomain: "metodos-5fbea.firebaseapp.com",
+  databaseURL: "https://metodos-5fbea.firebaseio.com",
+  projectId: "metodos-5fbea",
+  storageBucket: "metodos-5fbea.appspot.com",
+  messagingSenderId: "665707825322",
+  appId: "1:665707825322:web:1e0ace51077118c9a6e8d3",
+  measurementId: "G-4E77CRZMR7"
+};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 

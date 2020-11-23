@@ -245,7 +245,7 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-angle-right nav-icon"></i>
-                  <p>3/4 de Simpson</p>
+                  <p>3/8 de Simpson</p>
                 </a>
               </li>
             </ul>
@@ -341,6 +341,12 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <router-link to="/" class="nav-link">Inicio</router-link>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <router-link to="/login" class="nav-link">Iniciar Sesión</router-link>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <router-link to="/register" class="nav-link">Registrarse</router-link>
       </li>
     </ul>
 

@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <h1>Registro de Usuarios</h1>
-        <form @submit.prevent="createUser({email: email,password: passOne})">
+    <div class="content-wrapper">
+        <div class="content container">
+            <h1>Registro de Usuarios</h1>
+            <form @submit.prevent="createUser({email: email,password: passOne})">
             <input 
             type="email" placeholder="Ingrese su correo"
             class="form-control my-2"
@@ -29,6 +30,8 @@
             <button type="sumbit" :disabled='!deactivate' class="btn btn-info" >Registrate</button>
         </form>
         <p v-if="error == 'Error: The email address is already in use by another account.'">Email ya registrado.</p>
+        </div>
+        
     </div>
 </template>
 

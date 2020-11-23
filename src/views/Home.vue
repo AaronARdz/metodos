@@ -3,7 +3,7 @@
         <div class="content">
             <div class="row">
                 <div class="col">
-                <h1>Ruta protegida</h1>
+                <h1>Bienvenido</h1>
                     <h3 class="d-inline">Usuario:</h3><p class="ml-2 d-inline">{{user.email}}</p>
                 </div>
             </div>
@@ -22,10 +22,11 @@
             <p>Cargando...</p>
             <pacman-loader :loading="loading" :color="green"></pacman-loader>
         </div>
+        <p>{{unidades}}</p>
 
         <div v-if="!loading" class="mt-4">
             <ul class="list-group">
-            <li class="list-group-item" v-for="item of filteredArray" :key="item.id">
+            <li class="list-group-item" v-for="item of unidades" :key="item.id">
                 {{item.name}} {{item.id}}
             <router-link :to="{name: 'Edit', params: {id: item.id}}">
                 <button class="btn btn-primary float-right">Editar</button>
@@ -55,7 +56,7 @@ export default {
     },
     name: 'Home',
     computed: {
-        ...mapState(['user','jobs','loading']),
+        ...mapState(['user','jobs','loading','unidades']),
         ...mapGetters(['filteredArray'])
     },
     methods: {

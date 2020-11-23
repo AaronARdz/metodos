@@ -1,5 +1,6 @@
 <template>
-    <div class="container mt-4">
+<div class="content-wrapper">
+     <div class="container mt-4">
         <h1>Agregar</h1>
         <form class="form-group" @submit.prevent="addJob(name)">
             <input type="text" v-model="$v.name.$model">   
@@ -13,6 +14,8 @@
         </form>
         {{$v.name}}
     </div>
+</div>
+   
 </template>
 
 <script>
