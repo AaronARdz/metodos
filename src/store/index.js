@@ -102,6 +102,7 @@ export default new Vuex.Store({
           console.log("Error getting document:", error);
           commit('loadFirebase', false);
       });
+      commit('loadFirebase', false);
     },
     getJob({commit, state}, jobId){
       db.collection(state.user.email).doc(jobId).get()
